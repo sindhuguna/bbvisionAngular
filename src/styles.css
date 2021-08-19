@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+@import "~fullcalendar/dist/fullcalendar.min.css";
+@import "~material-icons/iconfont/material-icons.css";
+@use '~@angular/cdk';
+
+@include cdk.a11y-visually-hidden();
+/* @import url('https://fonts.googleapis.com/css?family=Ubuntu'); */
+
+@font-face {
+    font-family: "Oleo";
+    src: url(assets/fonts/OleoScript-Regular.ttf) format("truetype");
+    font-family: "Quincy";
+    src: url(assets/fonts/Quincy.ttf) format("truetype");
+    font-family: "Quincy CF";
+    src: url(assets/fonts/QuincyCF.ttf) format("truetype");
+}
+.Oleo {
+    font-family: Oleo;
+}

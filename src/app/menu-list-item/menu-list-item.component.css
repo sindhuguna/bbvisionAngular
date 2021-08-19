@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 100%;
+}
+
+.mat-list-item {
+  padding: 0px 0;
+  display: flex;
+  width: auto;
+}
+
+.mat-nav-list .mat-list-item:focus,
+.mat-action-list .mat-list-item:focus,
+.mat-list-option:focus {
+  background: #76b900 !important;
+}
+/* .mat-list-item {
+  background-color: #7ab0c5; 
+} */

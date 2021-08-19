@@ -1,0 +1,14 @@
+<div mat-dialog-title>
+    <button mat-mini-fab cdkFocusInitial (click)="onNoClick()"
+        style="float: left;background-color: darkblue;">Ok</button>
+    <button mat-mini-fab (click)="close()"
+        style="float: right;cursor: pointer;font-weight: normal;background-color: darkorange;">
+        X
+    </button>
+</div>
+<div mat-dialog-actions>
+    <ng-multiselect-dropdown style="margin-top: 60px;min-width: 320px;margin-left: -50px;"
+        [placeholder]="'custom placeholder'" [settings]="dropdownSettings" [data]="dropdownList"
+        [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+    </ng-multiselect-dropdown>
+</div>

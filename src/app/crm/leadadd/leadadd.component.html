@@ -1,0 +1,266 @@
+<button mat-mini-fab routerLink="../lead" style="background-color: #5ac6c6;float: right;margin-right: 10px;">
+    <mat-icon>arrow_back</mat-icon>
+</button>
+
+<div fxLayout="column">
+    <div style="-webkit-align-items: center;" fxLayout="column">
+        <img src="assets/images/BB LOGO.png" style="width:250px;height:150px;border-style: none;"
+            onFocus="if(document.getElementById('_arrowdown').disabled == true){return false;}" disabled='true'
+            id="_arrowdown" tabindex='0'>
+    </div>
+
+    <form style="margin-left: 50px;" [formGroup]="formgroup" class="example-form" fxLayout="column" fxFlex="50">
+
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;-webkit-align-items: start;">
+                    call Type
+                </mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <input formControlName="calltype" matInput [value]="calltypeadd" readonly>
+                    <!-- <mat-select #name formControlName="calltype">
+                        <mat-option *ngFor="let calltypes of calltypeselect" [value]="calltypes.calltypecode">
+                            {{calltypes.calltype}}
+                        </mat-option>
+
+                    </mat-select> -->
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;-webkit-align-items: start;">
+                    Date
+                </mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <input formControlName="date" matInput [value]="dateadd" readonly>
+
+
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color:#464545;">Client Type</mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="client"> -->
+                    <input formControlName="clienttype" matInput [value]="clienttypeadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color:#464545;">Company Name </mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="client"> -->
+                    <input formControlName="companyname" matInput [value]="companynameadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color:#464545;"> Location</mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="client"> -->
+                    <input formControlName="location" matInput [value]="locationadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color:#464545;">Address</mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="address"> -->
+                    <input formControlName="address" matInput [value]="addressadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color:#464545;">Client Name</mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="city"> -->
+                    <input formControlName="clientname" matInput [value]="clientnameadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color:#464545;">Contact Number</mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="client"> -->
+                    <input formControlName="contactnumber" matInput [value]="contactnumberadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color: #464545;"> Designation</mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="designation"> -->
+                    <input formControlName="designation" matInput [value]="designationadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color:#464545;">Mail Id</mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="clientname"> -->
+                    <input formControlName="mailid" matInput [value]="mailidadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color: #464545;">Product/Service </mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="contactnumber"> -->
+                    <input formControlName="product" matInput [value] readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color: #464545;">Feedback</mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="mailid"> -->
+                    <input formControlName="feedback" matInput [value]="feedbackadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color: #464545;"> followupdate</mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="service"> -->
+                    <input formControlName="followupdate" matInput [value]="followupdateadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color: #464545;"> Department</mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="feedback"> -->
+                    <input formControlName="department" matInput [value]="departmentadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px">
+            <div fxFlex="10">
+                <mat-label style="font-weight: bold;color: #464545;"> Employee Name</mat-label>
+            </div>
+            <div fxFlex="100">
+                <mat-form-field class="example-full-width" appearance="outline"
+                    style="margin-top: -10px;margin-left: -100px;">
+
+                    <!-- <input matInput formControlName="feedback"> -->
+                    <input formControlName="employeename" matInput [value]="employeeadd" readonly>
+                </mat-form-field>
+            </div>
+        </div>
+        <!-- <mat-slide-toggle  formControlName="status">Status</mat-slide-toggle>
+        <mat-label style="
+        color: black;
+        border-radius: 20px;
+        border-width: 2px;
+        padding-left: 4px;
+        padding-right: 4px;
+        background-color: #3b3938;
+        margin-top: 15px;" [style.backgroundColor]="statuscolor">{{status}}</mat-label> -->
+
+    </form>
+    <div *ngIf="leadboolean" style="align-self: center;margin-top: 100px;">
+        <button mat-button type="submit" style="background-color: #6517ca;">Generated Cost sheet</button>
+    </div>
+
+
+    <div flex *ngIf="feedboolean">
+        <div style="text-align: center;">
+            <h4 style="font-size: x-large;
+    font-weight: 500;
+    margin-top: revert;"> Feedback Entry Details</h4>
+        </div>
+
+        <div class="example-container mat-elevation-z8">
+            <table mat-table [dataSource]="dataSourceentry" class="mat-elevation-z8" matSort>
+                <ng-container matColumnDef="feedbackentry">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef style="font-weight: bold;font-size: medium;
+                        color: #383131;"> Feedback </th>
+                    <td mat-cell *matCellDef="let element"> {{element.feedbackentry}} </td>
+                </ng-container>
+                <ng-container matColumnDef="feedbackdate">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef style="font-weight: bold;font-size: medium;
+                        color: #383131;"> Feedback Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.feedbackdate}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumn_feedbackentry;"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumn_feedbackentry;"></tr>
+
+            </table>
+        </div>
+
+    </div>
+
+
+
+</div>

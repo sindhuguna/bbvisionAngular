@@ -1,0 +1,50 @@
+<body>
+    <div style="overflow-y: hidden;">
+        <!-- <img src="../../assets/images/bb bg.jpg" class="img1" alt="cinque terre"
+        style="overflow-y: hidden;overflow-x: hidden;min-width: 1340px;max-height: 655px;"> -->
+        <form [formGroup]="loginForm">
+
+            <div class="login-box">
+                <div class="bb" style="float: left;margin-left: -50px;margin-top: -3px;">
+                    <img src="assets/images/blogo.png" class="img1" alt="cinque terre"
+                        style="overflow-y: hidden;overflow-x: hidden;min-width: 60px;max-width: 60px;max-height: 60px;min-height: 60px;">
+                </div>
+                <div>
+                    <h1 class="QuincyCF">Login</h1>
+                    <div class="line"></div>
+                    <div class="textbox form-group">
+                        <i class="fas fa-user" style="color: #05d8d8;"></i>
+                        <input type="text" #username placeholder="Username" class="form-control"
+                            formControlName="username">
+                    </div>
+                    <div class="textbox form-group">
+                        <i class="fas fa-lock" style="color: #05d8d8;"></i>
+                        <input type="password" placeholder="Password" class="form-control" (focusout)="checkisuser()"
+                            formControlName="password">
+                    </div>
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin" (change)="showOptions($event)">Remember me</mat-checkbox>
+                    </section>
+                    <!-- <button mat-button style="color: #087e7e;margin-left: 150px;" (click)="forgotpassword()"
+                        (keydown.enter)="$event.preventDefault()">Forgot
+                        Password?</button> -->
+                    <p><a href="#" (click)="forgotpassword()" style="color: #087e7e;margin-left: 150px;">Forgot
+                            Password?</a></p>
+                    <div style="margin-top: 20px;">
+                        <button mat-button style="background-color: #04a2a2;width: 280px;color: white;"
+                            (click)="login()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<!-- <mat-form-field class="example-full-width" appearance="fill" >
+    <div style="margin-bottom:-30px;">
+        <mat-icon style="margin-top:-2px" matPrefix></mat-icon>
+    </div>
+    <span matPrefix>
+        <mat-icon matPrefix>account_box</mat-icon>
+    </span>
+    <input matInput placeholder="Username" autocomplete="off" style="color: white;">
+</mat-form-field> -->

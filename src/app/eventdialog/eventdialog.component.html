@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Events</h1>
+<mat-nav-list>
+    <a mat-list-item (click)="listselect(link)" *ngFor="let link of this.Events"
+        [style.background-color]="getBackgroundColor(link)"> {{
+        link.eventname }}
+        <!-- <h4 *ngIf="link.time" style="margin-top: 110px;margin-left: -95px;font-weight: bold;"> {{link.time}} </h4> -->
+    </a>
+</mat-nav-list>
+
+<div mat-dialog-actions align="end">
+    <button mat-button cdkFocusInitial (click)="onNoClick()">Ok</button>
+    <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Apply</button> -->
+    <!-- <button mat-button cdkFocusInitial>Apply</button> -->
+</div>
+
+
+<!-- <form class="example-form">
+    <mat-form-field class="example-full-width">
+        <mat-label>Number</mat-label>
+        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+            [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)='getPosts($event.option.value)'>
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <div *ngIf="permissionboolean" style="margin-left: 3px;">
+        <mat-form-field>
+            <mat-label>FromTime</mat-label>
+            <input matInput type="time" placeholder="Start Time" style="min-width: 200px;">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Totime</mat-label>
+            <input matInput type="time" placeholder="End Time" style="min-width: 200px;">
+        </mat-form-field>
+    </div>
+    <div *ngIf="!permissionboolean" style="margin-left: 3px;">
+        <mat-form-field>
+            <input matInput [matDatepicker]="dpfrom" placeholder="FromDate" [max]="maxDate" [formControl]="fromdate">
+            <mat-datepicker-toggle matSuffix [for]="dpfrom"></mat-datepicker-toggle>
+            <mat-datepicker #dpfrom></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="dpto" placeholder="ToDate" [min]="minDate" [formControl]="todate">
+            <mat-datepicker-toggle matSuffix [for]="dpto"></mat-datepicker-toggle>
+            <mat-datepicker #dpto></mat-datepicker>
+        </mat-form-field>
+    </div>
+</form> -->

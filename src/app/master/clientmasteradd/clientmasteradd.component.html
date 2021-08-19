@@ -1,0 +1,294 @@
+<button mat-mini-fab routerLink="../../../../../../../../../../../../../../../clientmaster"
+    style="background-color: #5ac6c6;float: right;margin-right: 10px;">
+    <mat-icon>arrow_back</mat-icon>
+</button>
+<div fxLayout="column">
+    <div style="-webkit-align-items: center;" fxLayout="column">
+        <img src="assets/images/BB LOGO.png" style="width:250px;height:150px;border-style: none;"
+            onFocus="if(document.getElementById('_arrowdown').disabled == true){return false;}" disabled='true'
+            id="_arrowdown" tabindex='0'>
+    </div>
+    <form [formGroup]="formgroup" class="example-form" fxLayout="column" fxFlex="50"
+        style="-webkit-align-items: center;">
+        <div fxLayout="row" fxLayoutGap="250px" style="margin-left: -200px;">
+            <div fxFlex="50">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style="font-weight: bold;color: #464545;">Department</mat-label>
+                    <mat-select formControlName="departmentname" #dept>
+                        <mat-option *ngFor="let department of departmentselect" [value]="department.deptcode">
+                            {{department.deptname}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex="50">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style="font-weight: bold;color: #464545;">Employee</mat-label>
+                    <mat-select formControlName="employee">
+                        <mat-option *ngFor="let employee of employeeselect" [value]="employee.empcode">
+                            {{employee.empname}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="250px" style="margin-left: -200px;">
+            <div fxFlex="50">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style="font-weight: bold;color: #464545;">Client Name</mat-label>
+                    <input matInput formControlName="clientname">
+                </mat-form-field>
+            </div>
+            <div fxFlex="50">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style="font-weight: bold;color: #464545;">Client Org Name</mat-label>
+                    <mat-select formControlName="clientorgtype">
+                        <mat-option *ngFor="let clientorgtype of clientorgtypeelect" [value]="clientorgtype.orgcode">
+                            {{clientorgtype.orgname}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="100px" style="margin-left: -50px;">
+            <div fxFlex="33">
+                <mat-form-field class="example-full-width classformfield" appearance="outline">
+                    <mat-label style="font-weight: bold;color: #464545;">Mobile No1*</mat-label>
+                    <input matInput formControlName="mobno1">
+                </mat-form-field>
+            </div>
+            <div fxFlex="33">
+                <mat-form-field class="example-full-width classformfield" appearance="outline">
+                    <mat-label style="font-weight: bold;color: #464545;">Mobile No2</mat-label>
+                    <input matInput formControlName="mobno2">
+                </mat-form-field>
+            </div>
+            <div fxFlex="33">
+                <mat-form-field class="example-full-width classformfield" appearance="outline">
+                    <mat-label style="font-weight: bold;color: #464545;">LandLine No</mat-label>
+                    <input matInput formControlName="landline">
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="250px" style="margin-left: -200px;">
+            <div fxFlex="50">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style="font-weight: bold;color: #464545;">Email1 *</mat-label>
+                    <input matInput formControlName="email1">
+                </mat-form-field>
+            </div>
+            <div fxFlex="50">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style="font-weight: bold;color: #464545;">Email2</mat-label>
+                    <input matInput formControlName="email2">
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="250px" style="margin-left: -200px;">
+            <div fxFlex="50">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style="font-weight: bold;color: #464545;">Gst *</mat-label>
+                    <input matInput formControlName="gstno">
+                </mat-form-field>
+            </div>
+            <div fxFlex="50">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style="font-weight: bold;color: #464545;">Website</mat-label>
+                    <input matInput formControlName="website">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <mat-accordion class="example-headers-align" multi style="width: 79%;">
+            <div formGroupName="addressform">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title style="font-weight: 800;">
+                            Company Address
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label style="font-weight: bold;color: #464545;">Address</mat-label>
+                        <textarea matInput formControlName="address"></textarea>
+                    </mat-form-field>
+
+                    <div fxLayout="row" fxLayoutGap="50px">
+                        <div fxFlex="33">
+                            <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                <mat-label style="font-weight: bold;color: #464545;">City</mat-label>
+                                <input matInput formControlName="city">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="33">
+                            <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                <mat-label style="font-weight: bold;color: #464545;">State</mat-label>
+                                <mat-select formControlName="state">
+                                    <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                                        {{ state.name }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="33">
+                            <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                <mat-label style="font-weight: bold;color: #464545;">Postal Code</mat-label>
+                                <input matInput #postalCode maxlength="6" type="string" formControlName="postalCode">
+                                <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </div>
+            <div formGroupName="purchase">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title style="font-weight: 800;">
+                            Purchase Department
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div fxLayout="row" fxLayoutGap="50px">
+                        <div fxFlex="50">
+                            <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                <mat-label style="font-weight: bold;color: #464545;">Name</mat-label>
+                                <input matInput formControlName="name">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="50">
+                            <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                <mat-label style="font-weight: bold;color: #464545;">Designation</mat-label>
+                                <input matInput formControlName="designation">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="50px">
+                        <div fxFlex="50">
+                            <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                <mat-label style="font-weight: bold;color: #464545;">Contact Number</mat-label>
+                                <input matInput formControlName="contact">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="50">
+                            <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                <mat-label style="font-weight: bold;color: #464545;">Mail Id</mat-label>
+                                <input matInput formControlName="mailid">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <mat-slide-toggle (change)="onTogglepurchase($event)" formControlName="purbranch">Branch
+                    </mat-slide-toggle>
+                    <div *ngIf="puraddress" formGroupName="purchaseaddress">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label style="font-weight: bold;color: #464545;">Address</mat-label>
+                            <textarea matInput formControlName="address"></textarea>
+                        </mat-form-field>
+                        <div fxLayout="row" fxLayoutGap="50px">
+                            <div fxFlex="33">
+                                <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                    <mat-label style="font-weight: bold;color: #464545;">City</mat-label>
+                                    <input matInput formControlName="city">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="33">
+                                <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                    <mat-label style="font-weight: bold;color: #464545;">State</mat-label>
+                                    <mat-select formControlName="state">
+                                        <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                                            {{ state.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="33">
+                                <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                    <mat-label style="font-weight: bold;color: #464545;">Postal Code</mat-label>
+                                    <input matInput #postalCode maxlength="5" type="string"
+                                        formControlName="postalCode">
+                                    <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </div>
+            <div formGroupName="finance">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title style="font-weight: 800;">
+                            Finance Department
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div fxLayout="row" fxLayoutGap="50px">
+                        <div fxFlex="50">
+                            <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                <mat-label style="font-weight: bold;color: #464545;">Name</mat-label>
+                                <input matInput formControlName="name">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="50">
+                            <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                <mat-label style="font-weight: bold;color: #464545;">Designation</mat-label>
+                                <input matInput formControlName="designation">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="50px">
+                        <div fxFlex="50">
+                            <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                <mat-label style="font-weight: bold;color: #464545;">Contact Number</mat-label>
+                                <input matInput formControlName="contact">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="50">
+                            <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                <mat-label style="font-weight: bold;color: #464545;">Mail Id</mat-label>
+                                <input matInput formControlName="mailid">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <mat-slide-toggle (change)="onTogglefinance($event)" formControlName="finbranch">Branch
+                    </mat-slide-toggle>
+                    <div *ngIf="finaddress" formGroupName="financeaddress">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label style="font-weight: bold;color: #464545;">Address</mat-label>
+                            <textarea matInput formControlName="address"></textarea>
+                        </mat-form-field>
+                        <div fxLayout="row" fxLayoutGap="50px">
+                            <div fxFlex="33">
+                                <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                    <mat-label style="font-weight: bold;color: #464545;">City</mat-label>
+                                    <input matInput formControlName="city">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="33">
+                                <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                    <mat-label style="font-weight: bold;color: #464545;">State</mat-label>
+                                    <mat-select formControlName="state">
+                                        <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                                            {{ state.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="33">
+                                <mat-form-field class="example-full-width classmatformfield" appearance="outline">
+                                    <mat-label style="font-weight: bold;color: #464545;">Postal Code</mat-label>
+                                    <input matInput #postalCode maxlength="5" type="string"
+                                        formControlName="postalCode">
+                                    <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </div>
+        </mat-accordion>
+    </form>
+
+    <div style="align-self: center;margin-top: 20px;" *ngIf="savedata">
+        <button mat-button type="submit" style="background-color: #5ac6c6;" (click)="saveform()">Save</button>
+    </div>
+
+    <div style="align-self: center;margin-top: 20px;" *ngIf="!savedata">
+        <button mat-button type="submit" style="background-color: #5ac6c6;" (click)="update()">Update</button>
+    </div>
+</div>

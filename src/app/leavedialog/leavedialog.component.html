@@ -1,0 +1,113 @@
+<div fxFlex *ngIf="event === 'Leave'">
+    <h2 style="text-align-last: center;
+    font-weight: 500;">{{this.event}}</h2>
+    <form [formGroup]="formGroupleave">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">LeaveType</mat-label>
+            <mat-select formControlName="leavetype">
+                <mat-option *ngFor="let type of leavetype" [value]="type">
+                    {{type.name}}&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;&nbsp;Available Days&nbsp;&nbsp;&nbsp;
+                    {{type.available_leave}}&nbsp;&nbsp;&nbsp;days
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input formControlName="fromdate" (dateChange)="onfromDateChange()" matInput [matDatepicker]="frompicker"
+                placeholder="From Date" readonly>
+            <mat-datepicker-toggle matSuffix [for]="frompicker" disabled></mat-datepicker-toggle>
+            <mat-datepicker #frompicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input formControlName="todate" (dateChange)="ontoDateChange()" matInput [matDatepicker]="topicker"
+                placeholder="To Date">
+            <mat-datepicker-toggle matSuffix [for]="topicker"></mat-datepicker-toggle>
+            <mat-datepicker #topicker></mat-datepicker>
+            <!-- <div *ngIf="f.todate.touched">
+                <small *ngIf="todate.errors?.required && 
+                todate.touched ">Required</small>
+                <small *ngIf="formGroup.errors?.invaineTo" class="text-danger">
+                    choose a date over today</small>
+                <small *ngIf="formGroup.errors?.dates" class="text-danger">
+                    End Date should be grater than start Date</small>
+            </div> -->
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutGap="2px">
+            <div>
+                <mat-form-field fxFlex="40">
+                    <input matInput formControlName="days" placeholder="No. Of Days" #days id="days">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field *ngIf="type" class="example-full-width" appearance="outline" fxFlex="50">
+                    <mat-label style="font-weight: bold;color: #464545;">Type</mat-label>
+                    <mat-select formControlName="type">
+                        <mat-option *ngFor="let half of halffull" [value]="half.code">
+                            {{half.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <br />
+
+        <button style="background-color: #255e5e;
+        color: white;" type="submit" [disabled]="!formGroupleave.valid" mat-raised-button
+            (click)="submitleavetype()">Save</button>
+
+    </form>
+
+</div>
+<div fxFlex *ngIf="event === 'OnDuty'">
+    <h2 style="text-align-last: center;
+    font-weight: 500;">{{this.event}}</h2>
+    <form [formGroup]="formGrouponduty">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Client</mat-label>
+            <mat-select formControlName="client">
+                <mat-option *ngFor="let e of client" [value]="e.code">
+                    {{e.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Date" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker" disabled></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <input matInput formControlName="location" placeholder="Location" #location id="location">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput formControlName="purpose" placeholder="Purpose" #purpose id="purpose">
+        </mat-form-field>
+
+        <button style="background-color: #255e5e;
+        color: white;" type="submit" mat-raised-button [disabled]="!formGrouponduty.valid"
+            (click)="submitonduty()">Save</button>
+
+    </form>
+</div>
+
+<div fxFlex *ngIf="event === 'Permission'">
+    <form [formGroup]="formGroupperm">
+        <mat-form-field>
+            <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Date" readonly>
+            <!--  -->
+            <mat-datepicker-toggle matSuffix [for]="picker" disabled></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <material-timepicker formControlName="fromtime" color="primary" label="From Time"
+            (change)="onChangeHour($event)" revertLabel="Remove" submitLabel="Ok"></material-timepicker>
+        <material-timepicker formControlName="totime" color="primary" label="To Time" (change)="onChangeHour($event)"
+            revertLabel="Remove" submitLabel="Ok"></material-timepicker>
+        <button style="background-color: #255e5e;
+        color: white;" type="submit" mat-raised-button [disabled]="!formGroupperm.valid"
+            (click)="submitperm()">Save</button>
+    </form>
+</div>

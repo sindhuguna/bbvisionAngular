@@ -1,0 +1,23 @@
+<div class="custom-dialog">
+    <div>
+        <button mat-mini-fab color="primary" *ngIf="modalType === 'warn'" style="background-color: yellow;">
+            <mat-icon>error_outline</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" *ngIf="modalType === 'error'" style="background-color: red;">
+            <mat-icon>cancel</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" *ngIf="modalType === 'info'" style="background-color: green;">
+            <mat-icon>check</mat-icon>
+        </button>
+    </div>
+    <h2 mat-dialog-title>{{modalTitle}}</h2>
+    <mat-dialog-content>
+        <p>
+            {{modalMessage}}
+        </p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button style="background-color: rgb(13, 173, 173);color: blue;"
+            [mat-dialog-close]="true">Ok</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,16 @@
+<div mat-dialog-title style="float: right; cursor: pointer;font-weight: normal;" (click)="close()">X
+</div>
+<h1 style="margin-top: 30px;">
+    <div id="boxes">
+        <div mat-dialog-title class="square" id="leftbox">
+        </div>
+        <div style="margin-left: 25px;margin-top: -8px;" id="middlebox">{{this.events.description}}</div>
+        <div style="margin-left: 25px;font-size: 15px;font-style: oblique;" id="middlebox">{{this.events.start}}</div>
+    </div>
+</h1>
+<div mat-dialog-content style="margin-top: 20px;margin-left: -42px;">
+    <img src="assets/images/meeting.png" style="width: 30px;height: 20px;margin-left: 10px;margin-top: 28px;"
+        id=leftbox />
+    <button mat-button style="background-color: #1a73e8;color: white;margin-left: 20px;margin-top: 20px;">Join With
+        Google Meet</button>
+</div>

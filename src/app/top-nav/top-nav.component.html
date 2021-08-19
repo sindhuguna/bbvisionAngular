@@ -1,0 +1,117 @@
+<!-- <mat-toolbar color="primary" class="mat-elevation-z1">
+    <button mat-icon-button id="menu" (click)="navService.openNav()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>DASHBOARD</span>
+    <span fxFlex></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>apps</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="calenderopen()">
+            <img src="assets/images/calender.png" style="width: 45px;
+            height: 45px;" />
+            Calender
+        </button>
+    </mat-menu>
+
+    <mat-icon [matBadge]="count" matBadgeColor="warn" [matBadgeHidden]="hidden" (click)="notificationopen()">
+        notifications_active</mat-icon>
+    <p style="min-width: 30px;"></p>
+    <button mat-fab style="background-color: #226e80;">
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+
+</mat-toolbar> -->
+
+<div class="wrapper">
+    <nav>
+        <input type="checkbox" id="show-search">
+        <input type="checkbox" id="show-menu">
+        <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+        <div class="content">
+            <!-- <div class="logo"><a href="#">CodingNepal</a></div> -->
+
+            <!-- <button mat-button
+                style="background-color: white;color: #020808;
+            font-weight: bold;max-height: 40px;min-width: 100px;margin-top: 15px;margin-right: 5px;border-radius: 15px;"
+                (click)="togglemenu()">
+                <mat-icon>menu</mat-icon>
+            </button> -->
+
+            <mat-checkbox class="example-margin" (change)="togglemenu()">Menu
+            </mat-checkbox>
+            <!-- <mat-radio-group>
+                <mat-radio-button [value]="option" (change)="togglemenu()">Menu</mat-radio-button>
+            </mat-radio-group> -->
+
+            <ul class="links">
+                <li *ngFor="let item of items">
+                    <a class="desktop-link btn" (click)="clickevent(item)">{{item.displayName}}</a>
+                </li>
+                <!-- <li><a href="#">About</a></li>
+                <li>
+                    <a href="#" class="desktop-link">Features</a> -->
+                <!-- <input type="checkbox" id="show-features">
+                    <label for="show-features">Features</label>
+                    <ul>
+                        <li><a href="#">Drop Menu 1</a></li>
+                        <li><a href="#">Drop Menu 2</a></li>
+                        <li><a href="#">Drop Menu 3</a></li>
+                        <li><a href="#">Drop Menu 4</a></li>
+                    </ul> -->
+                <!-- </li>
+                <li>
+                    <a class="desktop-link btn" (click)="clickevent()">Services</a> -->
+                <!-- <input type="checkbox" id="show-services">
+                    <label for="show-services">Services</label>
+                    <ul>
+                        <li><a href="#">Drop Menu 1</a></li>
+                        <li><a href="#">Drop Menu 2</a></li>
+                        <li><a href="#">Drop Menu 3</a></li>
+                        <li>
+                            <a href="#" class="desktop-link">More Items</a>
+                            <input type="checkbox" id="show-items">
+                            <label for="show-items">More Items</label>
+                            <ul>
+                                <li><a href="#">Sub Menu 1</a></li>
+                                <li><a href="#">Sub Menu 2</a></li>
+                                <li><a href="#">Sub Menu 3</a></li>
+                            </ul>
+                        </li>
+                    </ul> -->
+                <!-- </li>
+                <li><a href="#">Feedback</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <span fxFlex></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" style="background-color: white;
+    margin-top: 15px;
+    margin-right: 5px;
+    color: #020808;
+    font-weight: bold;">
+        App
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="calenderopen()">
+            <img src="assets/images/calender.png" style="width: 45px;
+            height: 45px;" />
+            Calender
+        </button>
+    </mat-menu>
+
+    <!-- <mat-icon [matBadge]="count" matBadgeColor="warn" [matBadgeHidden]="hidden" (click)="notificationopen()">
+        notifications_active</mat-icon>
+    <p style="min-width: 30px;"></p> -->
+
+    <button mat-button style="background-color: white;color: #020808;
+        font-weight: bold;max-height: 40px;min-width: 100px;margin-top: 15px;margin-right: 5px;border-radius: 15px;"
+        (click)="logout()">Logout</button>
+    <!-- <button mat-fab style="background-color: #226e80;" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+    </button> -->
+</div>

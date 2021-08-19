@@ -1,0 +1,24 @@
+<div mat-dialog-title style="color: darkblue;">10 of 1580 Notifications (Pending History and Active
+    TillDate)
+</div>
+<div style=" max-height: 450px;overflow-y: scroll;">
+
+    <mat-list role="list">
+        <mat-list-item *ngFor="let pic of apiData">
+            <img mat-card-avatar src="{{pic.url}}" style="max-width: 50px;
+                max-height: 50px;min-height: 50px;" />
+            <p style="margin-top:70px;max-width: 500px;overflow-wrap: anywhere;overflow-x: auto;overflow-y: auto;
+                max-height: 100px;min-height: 100px;margin-left:50px;font-size: smaller;">
+                {{pic.description}} &nbsp;&nbsp;&nbsp;&nbsp;<b>
+                    1 hour ago
+                </b>
+            </p>
+            <button mat-icon-button>
+                <mat-icon style="color: rgb(219, 79, 79);">thumb_down</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon style="color: rgb(64, 168, 64);">thumb_up</mat-icon>
+            </button>
+        </mat-list-item>
+    </mat-list>
+</div>
