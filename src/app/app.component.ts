@@ -305,8 +305,4 @@ export class AppComponent implements OnInit {
     }
   }
 
-  dsd(){
-    
-    this.finance = false;
-  }
 }
