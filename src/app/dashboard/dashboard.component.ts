@@ -192,6 +192,7 @@ export class DashboardComponent implements OnInit {
   searchProject: string = "";
   searchstatus: string = "";
   searchdocstatus: string = "";
+  example:any;
   scheduled = [
     { name: 'Mr. Nice' },
     { name: 'Narco' },
@@ -376,6 +377,8 @@ export class DashboardComponent implements OnInit {
   }
   async getleavetype() {
   //az
+
+
     var sss = sessionStorage.getItem('logindet');
     if (sss) {
       this.login = JSON.parse(sss);
