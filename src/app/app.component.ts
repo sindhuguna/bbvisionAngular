@@ -275,7 +275,7 @@ export class AppComponent implements OnInit {
   // ngOnDestroy(): void {
   //   this.tempintraval.unsubscribe();
   // }
-  dashboardview() {
+  async dashboardview() {
     var sss = sessionStorage.getItem('logindet');
     if (sss) {
       this.login = JSON.parse(sss);

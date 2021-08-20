@@ -19,7 +19,7 @@ export class DashboardService {
     const url = environment.API_URL + 'API/staff_leave_creation.php';
     return this.http.post(url, leaveformsave, this.httpOptions).toPromise();
   }
-  getleavetype(empcode: number): Promise<any> {
+  async getleavetype(empcode: number): Promise<any> {
     debugger;
     const name = '{ "StaffId": "' + empcode + '"}';
     const json = JSON.parse(name);

@@ -359,10 +359,9 @@ export class DashboardComponent implements OnInit {
   public chartClicked(e: any): void {
     console.log(e);
   }
-  ngOnInit(): void {
-    this.getleavetype();
-    this.appcomp.dashboardview();
-    debugger;
+  async ngOnInit() {
+    await this.getleavetype();
+    await this.appcomp.dashboardview();
     this.employee = this.appcomp.emp;
     this.hr = this.appcomp.hr;
     this.finance = this.appcomp.finance;
@@ -375,17 +374,16 @@ export class DashboardComponent implements OnInit {
     this.dataSourcerenewal = this.renewal;
     this.dataSourceamc = this.amc;
   }
-  getleavetype() {
+  async getleavetype() {
     var sss = sessionStorage.getItem('logindet');
     if (sss) {
       this.login = JSON.parse(sss);
     }
-    debugger;
-    this.dashboardservice.getleavetype(this.login.empcode).then(data => {
-      debugger;
+    await this.dashboardservice.getleavetype(this.login.empcode).then(data => {
+      console.log(data);
       this.leavetype = data.leavetype;
     }, err => {
-      this.nameservice.message("Error", err, "error");
+      this.nameservice.message("Leave_balance", err.message, "error");
     });
   }
   // onEventRender(info: any) {
