@@ -13,7 +13,6 @@ export class MessageComponent {
   modalType: ModalType = ModalType.WARN;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-    debugger;
     this.modalTitle = data.title;
     this.modalMessage = data.message;
     this.modalType = data.type;

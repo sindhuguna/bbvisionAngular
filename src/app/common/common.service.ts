@@ -119,6 +119,14 @@ export class CommonService {
     const url = environment.API_URL + 'select/department_mapping/depart_select.php';
     return this.http.post(url, this.httpOptions).toPromise();
   }
+  async compselect(): Promise<any> {
+    const url = environment.API_URL + 'select/company_mapping/company_select.php';
+    return this.http.post(url, this.httpOptions).toPromise();
+  }
+  async headselect(): Promise<any> {
+    const url = environment.API_URL + 'select/head_mapping/head_select.php';
+    return this.http.post(url, this.httpOptions).toPromise();
+  }
 
 
   message(title: string, message: string, type: string) {

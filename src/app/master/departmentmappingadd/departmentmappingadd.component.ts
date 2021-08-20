@@ -2,8 +2,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSelect } from '@angular/material/select';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CommonService } from 'src/app/common/common.service';
 import { Companyselect, DepartmentMapping, Departmentselect, Headselect } from '../model/departmentmapping';
+import { LoginPojo } from '../model/login';
+import { DepartmentmappingService } from '../service/departmentmapping.service';
 
 @Component({
   selector: 'app-departmentmappingadd',
@@ -31,49 +34,38 @@ export class DepartmentmappingaddComponent implements OnInit {
     { headcode: 2, headname: 'Shiva' }
   ];
   formgroup!: FormGroup;
+  login: LoginPojo = new LoginPojo();
   deptmapping: DepartmentMapping = new DepartmentMapping();
-  company: any;
-  dept: any;
-  head: any;
-  statuses: any;
   status: string = "InActive";
   statuscolor: string = "rgb(249 125 125)";
-  save: any;
   savedata: boolean = true;
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder) { }
+  constructor(private route: ActivatedRoute, private fb: FormBuilder, private commonservice: CommonService, private service: DepartmentmappingService, private router: Router) { }
   sub!: any;
-  ngOnInit(): void {
+  async ngOnInit() {
     debugger;
-    this.sub = this.route.paramMap.subscribe(params => {
-      this.company = params.get('company');
-      this.dept = params.get('dept');
-      this.head = params.get('head');
-      this.statuses = params.get('status');
-      this.save = params.get('save');
-      console.log(params);
-    });
-    this.companyselectedit = this.companyselect.filter(
-      as => as.companyname === this.company
-    );
+    this.deptmapping = history.state[0];
+
+    await this.deptselect();
+    // await this.compselect();
+    await this.selecthead();
+    // this.companyselectedit = this.companyselect.filter(
+    //   as => as.companycode === this.deptmapping.companycode
+    // );
     this.departmentselectedit = this.departmentselect.filter(
-      as => as.deptname === this.dept
+      as => as.deptcode === this.deptmapping.departmentcode
     );
     this.headselectedit = this.headselect.filter(
-      as => as.headname === this.head
+      as => as.headcode === this.deptmapping.headcode
     );
-    this.deptmapping.companyname = this.company;
-    this.deptmapping.departmentname = this.dept;
-    this.deptmapping.headname = this.head;
-    this.deptmapping.status = this.statuses;
 
-    if (this.save === "add") {
+    if (this.deptmapping.save === "add") {
       this.savedata = true;
     } else {
       this.savedata = false;
     }
     this.formgroup = this.fb.group({
-      companyname: [this.deptmapping.companyname, [Validators.required]],
+      // companyname: [this.deptmapping.companyname, [Validators.required]],
       departmentname: [this.deptmapping.departmentname, [Validators.required]],
       headname: [this.deptmapping.headname, [Validators.required]],
       status: [this.deptmapping.status, [Validators.required]]
@@ -98,11 +90,32 @@ export class DepartmentmappingaddComponent implements OnInit {
     this.ontoggledefault();
     setTimeout(() => {
       if (this.someRef) this.someRef.focus();
-      // this.nameElement.nativeElement.focus();
     }, 0);
   }
+
+  async deptselect() {
+    await this.commonservice.deptselect().then(data => {
+      this.departmentselect = data.result;
+    }, err => {
+      alert(err);
+    });
+  }
+  async compselect() {
+    await this.commonservice.deptselect().then(data => {
+      this.companyselect = data.result;
+    }, err => {
+      alert(err);
+    });
+  }
+  async selecthead() {
+    await this.commonservice.deptselect().then(data => {
+      this.headselect = data.result;
+    }, err => {
+      alert(err);
+    });
+  }
+
   ontoggledefault() {
-    debugger;
     if (this.formgroup.value.status === "true") {
       this.status = "Active";
       this.statuscolor = "#70ce70";
@@ -115,7 +128,6 @@ export class DepartmentmappingaddComponent implements OnInit {
     }
   }
   onToggle(event: MatSlideToggleChange) {
-    debugger;
     if (event.checked) {
       this.status = "Active";
       this.statuscolor = "#70ce70";
@@ -126,7 +138,31 @@ export class DepartmentmappingaddComponent implements OnInit {
 
   }
   saveform() {
-
+    var sss = sessionStorage.getItem('logindet');
+    if (sss) {
+      this.login = JSON.parse(sss);
+    }
+    if (this.formgroup) {
+      this.deptmapping.headcode = this.formgroup.value.deptname;
+      this.deptmapping.departmentcode = this.formgroup.value.designationname;
+      this.deptmapping.created_by = this.login.empcode;
+      this.deptmapping.status = this.formgroup.value.status;
+      debugger;
+      const save = JSON.stringify(this.deptmapping);
+      this.service.save(save).then(data => {
+        debugger;
+        if (data.result[0].status === true) {
+          this.commonservice.message("DepartmentMapping Master Insert", data.result[0].message, "info");
+          this.router.navigate(['../departmentmapping']);
+        } else {
+          this.commonservice.message("DepartmentMapping Master Insert", data.result[0].message, "error");
+        }
+      }, err => {
+        this.commonservice.message("Error", err, "error");
+      });
+    } else {
+      this.commonservice.message("Warning", "Form Invalid", "warn");
+    }
   }
 
   update() {

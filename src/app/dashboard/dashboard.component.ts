@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import {  MatDialog } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { CalendarOptions } from '@fullcalendar/angular';
 import { EventdialogComponent } from '../eventdialog/eventdialog.component';
 import { MatAccordion } from '@angular/material/expansion';
@@ -362,6 +362,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getleavetype();
     this.appcomp.dashboardview();
+    debugger;
     this.employee = this.appcomp.emp;
     this.hr = this.appcomp.hr;
     this.finance = this.appcomp.finance;

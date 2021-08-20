@@ -1,6 +1,9 @@
 .mat-toolbar.mat-primary {
     background: #32c3ca !important;
 }
+.material-icons{
+  font-family: 'Material Icons' !important;
+}
 /* .content {z-index:20 !important;} */
 /* .nav {font-size:0.75em; width:210px; z-index:999999;}
 .nav ul {margin:0px; padding:0px; z-index:999999;}

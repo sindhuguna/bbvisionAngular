@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CommonService } from '../common/common.service';
 import { AppComponent } from '../app.component';
 import { NavItem } from '../common/navitem';
+import { LoginPojo } from '../master/model/login';
 
 @Component({
   selector: 'app-top-nav',
@@ -24,8 +25,14 @@ export class TopNavComponent implements OnInit {
   constructor(private appcomp: AppComponent, public navService: CommonService, public dialog: MatDialog, public router: Router) {
   }
   tempintraval!: any;
-
+  login: LoginPojo = new LoginPojo();
   ngOnInit() {
+    var sss = sessionStorage.getItem('logindet');
+    if (sss) {
+      this.login = JSON.parse(sss);
+    } else {
+      this.router.navigate([''])
+    }
     this.items = this.appcomp.navItems;
     this.tempintraval = setInterval(() => {
       this.navService.checkData().subscribe(res => this.datalist = res);

@@ -3,7 +3,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Companyselect, DepartmentMapping, Departmentselect, Headselect } from '../model/departmentmapping';
+import { CommonService } from 'src/app/common/common.service';
+import { DepartmentMapping } from '../model/departmentmapping';
+import { DepartmentmappingService } from '../service/departmentmapping.service';
 @Component({
   selector: 'app-departmentmapping',
   templateUrl: './departmentmapping.component.html',
@@ -11,42 +13,38 @@ import { Companyselect, DepartmentMapping, Departmentselect, Headselect } from '
 })
 export class DepartmentmappingComponent implements OnInit {
   @ViewChild('search') searchElement!: ElementRef;
-  displayedColumns: string[] = ['companyname', 'departmentname', 'headname', 'status', 'tools'];
+  displayedColumns: string[] = ['sno', 'departmentname', 'headname', 'status', 'tools'];
   dataSource!: MatTableDataSource<DepartmentMapping>;
-  department: DepartmentMapping[] = [
-    { companyname: 'BlueBase', departmentname: 'Designing', headname: 'Priya', status: true },
-    { companyname: 'Quadsel', departmentname: 'Development', headname: 'Preethi', status: false },
-    { companyname: 'BlueBase', departmentname: 'Finance', headname: 'Aathi', status: true }
-  ];
+  departmentmappingview: DepartmentMapping[] = [];
+  departmentmappingedit: DepartmentMapping[] = [];
+  departmentmapping: DepartmentMapping = new DepartmentMapping();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   status: string = "InActive";
   statuscolor: string = "rgb(249 125 125)";
-  companyselect: Companyselect[] = [
-    { companycode: 0, companyname: 'Quadsel' },
-    { companycode: 1, companyname: 'Bluebase' },
-    { companycode: 2, companyname: 'Quadsel' }
-  ];
-  departmentselect: Departmentselect[] = [
-    { deptcode: 0, deptname: 'Marketing' },
-    { deptcode: 1, deptname: 'Finance' },
-    { deptcode: 2, deptname: 'Developing' }
-  ];
-  headselect: Headselect[] = [
-    { headcode: 0, headname: 'Saro' },
-    { headcode: 1, headname: 'Suman' },
-    { headcode: 2, headname: 'Shiva' }
-  ];
-  constructor(public router: Router) {
-  }
 
+  constructor(public router: Router, private service: DepartmentmappingService, private commonservice: CommonService) {
+  }
 
   ngOnInit(): void {
     setTimeout(() => {
       this.searchElement.nativeElement.focus();
     }, 0);
-    this.dataSource = new MatTableDataSource(this.department);
+    this.view();
   }
+
+
+  view() {
+    debugger;
+    this.service.view().then(data => {
+      debugger;
+      this.departmentmappingview = data.result;
+      this.dataSource = new MatTableDataSource(this.departmentmappingview);
+    }, err => {
+      this.commonservice.message("Error", err, "error");
+    });
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -56,11 +54,15 @@ export class DepartmentmappingComponent implements OnInit {
   }
 
   add() {
-    this.router.navigate(['/departmentmappingadd', "", "", "", false, "add"]);
+    const des: DepartmentMapping = new DepartmentMapping();
+    this.departmentmappingedit[0] = des;
+    this.router.navigateByUrl('/departmentmappingadd', { state: this.departmentmappingedit });
   }
 
   selectedrow(row: any) {
-    this.router.navigate(['/departmentmappingadd', row.companyname, row.departmentname, row.headname, row.status, "update"]);
+    this.departmentmappingedit = this.departmentmappingview.filter((elem: any) => elem.id === row.id)
+    this.departmentmappingedit[0].save = "update"
+    this.router.navigateByUrl('/departmentmappingadd', { state: this.departmentmappingedit });
   }
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;

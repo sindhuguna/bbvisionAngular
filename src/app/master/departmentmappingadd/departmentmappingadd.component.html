@@ -1,4 +1,4 @@
-<button mat-mini-fab routerLink="../../../../../../departmentmapping"
+<button mat-mini-fab routerLink="../departmentmapping"
     style="background-color: #5ac6c6;float: right;margin-right: 10px;">
     <mat-icon>arrow_back</mat-icon>
 </button>
@@ -10,14 +10,14 @@
     </div>
     <form [formGroup]="formgroup" class="example-form" fxLayout="column" fxFlex="50"
         style="-webkit-align-items: center;">
-        <mat-form-field class="example-full-width" appearance="outline">
+        <!-- <mat-form-field class="example-full-width" appearance="outline">
             <mat-label style="font-weight: bold;color: #464545;">Company</mat-label>
             <mat-select #name cdkFocusInitial formControlName="companyname">
                 <mat-option *ngFor="let company of companyselect" [value]="company.companycode">
                     {{company.companyname}}
                 </mat-option>
             </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
 
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label style="font-weight: bold;color: #464545;">Department</mat-label>
