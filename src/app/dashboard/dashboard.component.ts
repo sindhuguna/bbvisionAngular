@@ -14,7 +14,7 @@ import { DatePipe, formatDate } from '@angular/common';
 import { LeaveTypeSave } from '../master/model/leaveform';
 import { LoginPojo } from '../master/model/login';
 import { DashboardService } from '../master/service/dashboard.service';
-// importt
+//f
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
