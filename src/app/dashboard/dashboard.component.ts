@@ -192,7 +192,7 @@ export class DashboardComponent implements OnInit {
   searchProject: string = "";
   searchstatus: string = "";
   searchdocstatus: string = "";
-  example:any;
+  example: any;
   scheduled = [
     { name: 'Mr. Nice' },
     { name: 'Narco' },
@@ -376,19 +376,21 @@ export class DashboardComponent implements OnInit {
     this.dataSourceamc = this.amc;
   }
   async getleavetype() {
-  //az
+    //az
 
 
     var sss = sessionStorage.getItem('logindet');
     if (sss) {
       this.login = JSON.parse(sss);
     }
-    await this.dashboardservice.getleavetype(this.login.empcode).then(data => {
-      console.log(data);
-      this.leavetype = data.leavetype;
-    }, err => {
-      this.nameservice.message("Leave_balance", err.message, "error");
-    });
+    if (sss) {
+      await this.dashboardservice.getleavetype(this.login.empcode).then(data => {
+        console.log(data);
+        this.leavetype = data.leavetype;
+      }, err => {
+        this.nameservice.message("Leave_balance", err.message, "error");
+      });
+    }
   }
   // onEventRender(info: any) {
   //   const tooltip = new Tooltip(info.el, {

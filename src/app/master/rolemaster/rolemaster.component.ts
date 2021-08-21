@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { RoleMaster } from '../model/rolemaster';
-// raja
+
 @Component({
   selector: 'app-rolemaster',
   templateUrl: './rolemaster.component.html',
