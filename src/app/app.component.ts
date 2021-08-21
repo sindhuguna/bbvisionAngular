@@ -220,6 +220,20 @@ export class AppComponent implements OnInit {
         disabled: false,
         iconName: 'input',
         route: 'lead',
+      },
+   {
+        menuname: 'costsheet',
+        displayName: 'Cost Sheet',
+        disabled: false,
+        iconName: 'input',
+        route: 'costsheet',
+      },
+      {
+        menuname: 'costsheetreverse',
+        displayName: 'Cost Sheet Reverse',
+        disabled: false,
+        iconName: 'input',
+        route: 'costsheetreverse',
       }]
     }]
   login: LoginPojo = new LoginPojo();
